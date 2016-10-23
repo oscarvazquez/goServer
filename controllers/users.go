@@ -18,6 +18,7 @@ func NewUserController() *UserController {
 
 func (uc UserController) CreateUser(w http.ResponseWriter, r *http.Request){
 	u := models.User{}
+	
 	uj, err := u.CreateUser();
 	if(err != nil){
         log.Fatal(err)		
@@ -41,8 +42,9 @@ func (uc UserController) GetUsers(w http.ResponseWriter, r *http.Request){
     fmt.Fprintf(w, "%s", uj)	
 }
 
-func (uc UserController) GetUser(w http.ResponseWriter, r *http.Request){
+func (uc UserController) Validate(w http.ResponseWriter, r *http.Request){
 	u := models.User{}
+	
 	uj, err := u.ValidateUser(mux.Vars(r)["id"]);
 	if(err != nil){
 		log.Fatal(err)

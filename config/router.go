@@ -11,6 +11,6 @@ func SetRoutes() *mux.Router{
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.HandleFunc("/users", uc.CreateUser)
 	myRouter.HandleFunc("/users/index", uc.GetUsers)
-	myRouter.HandleFunc("/users/{id}", uc.GetUser)	
+	myRouter.HandleFunc("/users/{id}", uc.Validate)	
 	return myRouter
 }
